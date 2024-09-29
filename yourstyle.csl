@@ -1,15 +1,47 @@
-<macro name="author">
-  <names variable="author">
-    <name form="short" and="text" delimiter=", " initialize-with=".">
-      <et-al term="et-al"/>
-    </name>
-  </names>
-</macro>
-<macro name="citation">
-  <group delimiter=", ">
-    <text macro="author"/>
-    <date variable="issued">
-      <date-part name="year"/>
-    </date>
-  </group>
-</macro>
+<citation-style xmlns="http://purl.org/net/xbiblio/csl" version="1.0">
+  <info>
+    <title>Zarr et al. Style</title>
+    <id>http://www.zotero.org/styles/zarr-et-al-style</id>
+    <link href="http://www.zotero.org/styles/zarr-et-al-style" rel="self"/>
+    <author>
+      <name>Your Name</name>
+    </author>
+    <category citation-format="author-date"/>
+    <updated>2024-09-29T12:00:00+00:00</updated>
+  </info>
+
+  <!-- Macro to format author names -->
+  <macro name="author">
+    <names variable="author">
+      <name form="short" and="text" delimiter=", " initialize-with=".">
+        <et-al term="et-al"/>
+      </name>
+    </names>
+  </macro>
+
+  <!-- Macro to format citation with year in parentheses -->
+  <macro name="citation">
+    <group delimiter=" ">
+      <text macro="author"/>
+      <group prefix=" (" suffix=")">
+        <date variable="issued">
+          <date-part name="year"/>
+        </date>
+      </group>
+    </group>
+  </macro>
+
+  <!-- Citation layout -->
+  <citation>
+    <layout delimiter=", ">
+      <text macro="citation"/>
+    </layout>
+  </citation>
+
+  <!-- Bibliography layout, you can modify this to include more details -->
+  <bibliography>
+    <layout>
+      <text variable="title"/>
+    </layout>
+  </bibliography>
+</citation-style>
