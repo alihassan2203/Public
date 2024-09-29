@@ -1,0 +1,15 @@
+<macro name="author">
+  <names variable="author">
+    <name form="short" and="text" delimiter=", " initialize-with=".">
+      <et-al term="et-al"/>
+    </name>
+  </names>
+</macro>
+<macro name="citation">
+  <group delimiter=", ">
+    <text macro="author"/>
+    <date variable="issued">
+      <date-part name="year"/>
+    </date>
+  </group>
+</macro>
